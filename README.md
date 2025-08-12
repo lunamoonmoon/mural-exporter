@@ -31,6 +31,8 @@ pip install -r requirements.txt
 
 ## Usage
 
+Create a .env file using the .env.template file and enter your mural access token and workspace id
+
 To export a Mural board, run the following command:
 
 ```bash
