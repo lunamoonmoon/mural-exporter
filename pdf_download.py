@@ -10,6 +10,7 @@ load_dotenv()
 ACCESS_TOKEN = os.getenv("ACCESS_TOKEN")
 WORKSPACE_ID = os.getenv("WORKSPACE_ID")
 
+# function to get each pdf link
 def get_pdf_link_by_api(mural_id, export_id, api_key, max_retries=10, delay=10):
     url = f"https://app.mural.co/api/public/v1/murals/{mural_id}/exports/{export_id}"
     headers = {
@@ -31,7 +32,7 @@ def get_pdf_link_by_api(mural_id, export_id, api_key, max_retries=10, delay=10):
         time.sleep(delay)
     return None
 
-# Read export info from CSV
+# using the export_mural.py's created csv download the pdfs of each mural
 with open("exports/mural_exports.csv", newline='') as csvfile:
     reader = csv.DictReader(csvfile)
     for row in reader:

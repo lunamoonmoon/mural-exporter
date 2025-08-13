@@ -10,7 +10,7 @@ load_dotenv()
 ACCESS_TOKEN = os.getenv("ACCESS_TOKEN")
 WORKSPACE_ID = os.getenv("WORKSPACE_ID")
 
-# Get a workspaces murals and save to a JSON file
+# Get workspaces murals and save to a JSON file
 url = f"https://app.mural.co/api/public/v1/workspaces/{WORKSPACE_ID}/murals?status=active&sortBy=lastCreated"
 headers = {
     "accept": "application/json",
@@ -20,7 +20,7 @@ headers = {
 
 response = requests.get(url, headers=headers)
 
-# Create exports directory and save mural boards metadata
+# Create exports directory
 os.makedirs("exports", exist_ok=True)
 with open("exports/murals_list.json", "w", encoding="utf-8") as file:
     file.write(response.text)
@@ -37,6 +37,7 @@ os.makedirs("exports/pdfs", exist_ok=True)
 # Create list to store export links
 export_links = []
 
+# for each mural save metadata
 for mural in murals_data.get("value", []):
     mural_id = mural.get("id")
     mural_name = mural.get("name", f"mural_{mural_id}")

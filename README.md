@@ -5,9 +5,8 @@ This is a tool for exporting Mural boards as PDFs.
 ## Features
 
 - Retrieves a list of all Mural boards in json format by a workspace ID
-- Saves the list of Mural boards to a JSON file
-- Exports Mural boards as PDFs
-- Batch exports multiple boards
+- Saves the list of Mural boards id, name, and export id to a CSV file
+- Exports Mural boards as high res PDFs
 
 ## Requirements
 
@@ -17,14 +16,19 @@ This is a tool for exporting Mural boards as PDFs.
 
 1. Clone the repository
 2. Install the required Python packages:
+
 ```bash
 python3 -m venv venv
 ```
+
 3. Activate the virtual environment:
+
 ```bash
 source venv/bin/activate
 ```
+
 4. Install the dependencies:
+
 ```bash
 pip install -r requirements.txt
 ```
@@ -33,10 +37,16 @@ pip install -r requirements.txt
 
 Create a .env file using the .env.template file and enter your mural access token and workspace id
 
-To export a Mural board, run the following command:
+1. To export a Mural board, run the following command:
 
 ```bash
 python3 export_mural.py
+```
+
+2. Then allow time for all the export links to be created by the mural server
+
+```bash
+python3 pdf_download.py
 ```
 
 ## License
