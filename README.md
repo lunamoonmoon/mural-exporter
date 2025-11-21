@@ -36,6 +36,8 @@ pip install -r requirements.txt
 ## Usage
 
 Create a .env file using the .env.template file and enter your mural access token and workspace id
+Get your mural access token through an application like postman and 
+[follow these steps](https://developers.mural.co/public/docs/testing-with-postman)
 
 1. To export a Mural board, run the following command:
 
