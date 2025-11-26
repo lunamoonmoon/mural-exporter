@@ -12,6 +12,20 @@ This is a tool for exporting Mural boards as PDFs.
 
 - python3
 
+## How to get the Access Token and Workspace Id
+
+1. Login to Mural
+2. Under progile go to my apps and click new app
+3. For redirect URL use https://oauth.pstmn.io/v1/callback
+4. Mural provides a client id and secret
+5. Your workspace ID is in the center of your URL when you navigate to one of your mural boards, save to .env
+6. In postman create a get request to https://app.mural.co/api/public/v1/authorization/oauth2/token using your mural client id and secret. For scope use murals:read murals:write rooms:read rooms:write
+7. Send your request in postman to get your mural access token
+8. In the .env file paste your workspace id and mural access token
+
+If you have trouble check the helpful mural API documents
+[Mural API Docs Testing with Postman](https://developers.mural.co/public/docs/testing-with-postman)
+
 ## Installation
 
 1. Clone the repository
